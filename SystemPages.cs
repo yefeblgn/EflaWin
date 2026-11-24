@@ -163,7 +163,7 @@ internal sealed partial class MainWindow
             if (bellekTemizleniyor) return;
             bellekTemizleniyor = true;
             temizle.IsEnabled = false;
-            temizle.Content = "Temizleniyor…";
+            temizle.Content = T("Temizleniyor…");
             try
             {
                 long once = (long)Bellek.Oku().Bos;
@@ -223,7 +223,7 @@ internal sealed partial class MainWindow
             surucuIptal = iptal;
             var aktif = IslemBaslat("Windows Update · Sürücü taraması", iptal.Cancel);
             IslemIlerle(aktif, "Windows Update sürücüleri denetleniyor…");
-            tara.Content = "Taranıyor…";
+            tara.Content = T("Taranıyor…");
             tara.IsEnabled = false;
             try
             {
@@ -239,7 +239,7 @@ internal sealed partial class MainWindow
                 IslemBitti(aktif);
                 if (!kapaniyor && sayfa == PageId.Suruculer)
                 {
-                    surucuTaraDugmesi.Content = "Tara";
+                    surucuTaraDugmesi.Content = T("Tara");
                     surucuTaraDugmesi.IsEnabled = true;
                     surucuTaraSonucu.Text = surucuSonucu;
                 }

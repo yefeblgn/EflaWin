@@ -92,6 +92,9 @@ internal sealed class Tray : IDisposable
             SetLayeredWindowAttributes(pencere, 0, 0, LayeredAlpha);
             var bolge = CreateRectRgn(0, 0, 0, 0);
             if (bolge != 0 && SetWindowRgn(pencere, bolge, false) == 0) DeleteObject(bolge);
+        }
+        if (contextMenu == null)
+        {
             contextMenu = MenuGovdesi();
             contextMenu.Closed += (_, _) => { if (!disposed) popup.AppWindow.Hide(); };
         }
@@ -117,6 +120,12 @@ internal sealed class Tray : IDisposable
         flyout.Items.Add(new MenuFlyoutSeparator());
         flyout.Items.Add(Madde(Localization.Cevir("Çıkış"), "\uE8BB", owner.Close));
         return flyout;
+    }
+
+    internal void DiliYenile()
+    {
+        contextMenu?.Hide();
+        contextMenu = null;
     }
 
     private MenuFlyoutItem Madde(string ad, string glyph, Action action)

@@ -136,7 +136,7 @@ internal sealed class IndirmeMotoru : IDisposable
                     indirilen += miktar;
                     if (DateTime.UtcNow >= guncelleme)
                     {
-                        ilerleme.Report(toplam > 0 ? $"{Boyut(indirilen)} / {Boyut(toplam.Value)}" : $"{Boyut(indirilen)} indirildi · Toplam bilinmiyor");
+                        ilerleme.Report(toplam > 0 ? $"{Boyut(indirilen)} / {Boyut(toplam.Value)}" : $"{Boyut(indirilen)} {Efla.Localization.Cevir("indirildi")} · {Efla.Localization.Cevir("Toplam bilinmiyor")}");
                         guncelleme = DateTime.UtcNow.AddMilliseconds(150);
                     }
                 }

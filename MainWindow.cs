@@ -182,6 +182,7 @@ internal sealed partial class MainWindow : Window
         foreach (var ad in menuAdlari) menuler[ad.Key].Content = T(ad.Value);
         arama.PlaceholderText = T("Uygulama ara");
         AutomationProperties.SetName(arama, T("Katalogda uygulama ara"));
+        tray?.DiliYenile();
         IslemleriGoster();
         SayfaAc(sayfa, false);
     }
